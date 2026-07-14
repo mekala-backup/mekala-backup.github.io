@@ -1,0 +1,37 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Build and packaging artifacts
+build/
+dist/
+*.egg-info/
+
+# Local logs and temporary files
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Generated experiment outputs
+evaluation_output/
+paper_outputs/
+paper_results_all/
+mixed_dataset/
+evals/
+weights/
+test_dataset/
+comparison_grids/
+*_comparison.png
+*_pr_curve.png
+*_confidence_plot.png
+*_annotated.png

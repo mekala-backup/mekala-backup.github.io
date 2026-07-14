@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f97316">
+  <meta name="description" content="Minimal research website for transparent object segmentation with interactive results, charts, and qualitative examples.">
+  <title>Less Real is More | Paper Website</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f97316'/%3E%3Cpath d='M18 37c5-11 23-11 28 0' fill='none' stroke='white' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./site.js"></script>
+</head>
+<body id="top">
+  <div class="page-shell">
+    <div class="top-glow top-glow-left"></div>
+    <div class="top-glow top-glow-right"></div>
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="#top" aria-label="Back to top">
+          <span class="brand-mark"></span>
+          <span class="brand-copy">
+            <strong>Less Real is More</strong>
+            <small>Research website</small>
+          </span>
+        </a>
+
+        <nav class="topnav" aria-label="Section navigation">
+          <a href="#overview" data-nav-link>Overview</a>
+          <a href="#method" data-nav-link>Method</a>
+          <a href="#results" data-nav-link>Results</a>
+          <a href="#gallery" data-nav-link>Gallery</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="hero section-card reveal" id="overview" data-section>
+        <div class="hero-copy">
+          <p class="eyebrow">Transparent object segmentation</p>
+          <h1>Less Real is More.</h1>
+          <p class="lede">
+            A minimal paper website for a synthetic-to-real ratio sweep on
+            YOLOv26m-seg. The story is simple: a small real-data anchor helps
+            a mostly synthetic mix outperform pure synthetic and pure real
+            training.
+          </p>
+
+          <div class="hero-stats" aria-label="Paper highlights">
+            <article class="stat-card">
+              <strong>636</strong>
+              <span>real test images</span>
+            </article>
+            <article class="stat-card">
+              <strong>2,509</strong>
+              <span>annotated instances</span>
+            </article>
+            <article class="stat-card">
+              <strong>9</strong>
+              <span>training ratios</span>
+            </article>
+            <article class="stat-card">
+              <strong>0.787</strong>
+              <span>best segmentation mAP@50</span>
+            </article>
+          </div>
+
+          <div class="resource-grid" aria-label="External resources">
+            <a class="resource-card" data-resource="code" href="#" target="_blank" rel="noreferrer">
+              <span class="resource-kicker">Source</span>
+              <strong>Code</strong>
+              <span class="resource-note">Implementation and evaluation scripts</span>
+            </a>
+            <a class="resource-card" data-resource="arxiv" href="#" target="_blank" rel="noreferrer">
+              <span class="resource-kicker">Paper</span>
+              <strong>arXiv</strong>
+              <span class="resource-note">Preprint and citation page</span>
+            </a>
+            <a class="resource-card" data-resource="huggingface" href="#" target="_blank" rel="noreferrer">
+              <span class="resource-kicker">Model</span>
+              <strong>Hugging Face</strong>
+              <span class="resource-note">Weights, demos, or model cards</span>
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <div class="hero-panel-card">
+            <div class="hero-panel-head">
+              <span class="pill">Best mix</span>
+              <strong>90:10</strong>
+            </div>
+            <p class="hero-panel-copy">
+              The ratio sweep is strongest in the mostly synthetic regime.
+              Pure real and pure synthetic both trail the mixed sweet spot.
+            </p>
+            <img
+              class="hero-panel-image"
+              data-src="./ratio_vs_map50.png"
+              alt="Ratio sweep bar chart for segmentation mAP@50"
+              loading="eager"
+            >
+            <div class="hero-panel-meta">
+              <span>Interactive chart below</span>
+              <span>Hover and sort to explore</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section-card reveal" id="method" data-section>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Method</p>
+            <h2>Same recipe, different mix.</h2>
+          </div>
+          <p class="section-subtitle">
+            The site keeps the method intentionally compact: the only variable is
+            the synthetic-to-real ratio.
+          </p>
+        </div>
+
+        <div class="method-grid">
+          <article class="method-card">
+            <span class="method-index">01</span>
+            <h3>Keep training fixed</h3>
+            <p>Backbone, resolution, optimizer, augmentation, and seed stay constant across runs.</p>
+          </article>
+          <article class="method-card">
+            <span class="method-index">02</span>
+            <h3>Sweep the ratio</h3>
+            <p>Nine mixes run from 100:0 synthetic to real all the way to 0:100.</p>
+          </article>
+          <article class="method-card">
+            <span class="method-index">03</span>
+            <h3>Evaluate on one real set</h3>
+            <p>A fixed held-out real test set makes the comparison directly interpretable.</p>
+          </article>
+        </div>
+
+        <div class="ratio-strip" aria-label="Training ratio sweep">
+          <span>100:0</span>
+          <span>95:5</span>
+          <span>90:10</span>
+          <span>75:25</span>
+          <span>50:50</span>
+          <span>25:75</span>
+          <span>10:90</span>
+          <span>5:95</span>
+          <span>0:100</span>
+        </div>
+      </section>
+
+      <section class="section-card reveal" id="results" data-section>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Results</p>
+            <h2>Interactive ratio sweep.</h2>
+          </div>
+          <p class="section-subtitle">
+            Toggle metrics, inspect the highlighted mix, and sort the summary
+            table below.
+          </p>
+        </div>
+
+        <div class="metric-toggle" id="metricToggle" role="tablist" aria-label="Choose metric">
+          <button type="button" class="metric-btn active" data-metric="mask50" role="tab" aria-selected="true">Seg mAP@50</button>
+          <button type="button" class="metric-btn" data-metric="mask5095" role="tab" aria-selected="false">Seg mAP@50-95</button>
+          <button type="button" class="metric-btn" data-metric="box50" role="tab" aria-selected="false">Box mAP@50</button>
+          <button type="button" class="metric-btn" data-metric="box5095" role="tab" aria-selected="false">Box mAP@50-95</button>
+          <button type="button" class="metric-btn" data-metric="precision" role="tab" aria-selected="false">Precision</button>
+          <button type="button" class="metric-btn" data-metric="recall" role="tab" aria-selected="false">Recall</button>
+          <button type="button" class="metric-btn" data-metric="speed" role="tab" aria-selected="false">Inference speed</button>
+        </div>
+
+        <div class="results-layout">
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <p class="eyebrow">Live chart</p>
+                <h3 id="chartTitle">Segmentation mAP@50</h3>
+                <p id="chartDescription">
+                  The main segmentation score peaks at 90:10, with 50:50 as a
+                  close secondary high point.
+                </p>
+                <span class="chart-mode" id="chartMode">Segmentation view</span>
+              </div>
+              <div class="chart-badges" id="chartBadges"></div>
+            </div>
+
+            <div class="chart-stage-wrap">
+              <div class="chart-stage" id="chartStage" aria-live="polite"></div>
+              <div class="chart-tooltip" id="chartTooltip" aria-hidden="true"></div>
+            </div>
+
+            <div class="chart-legend" id="chartLegend"></div>
+            <div class="metric-summary" id="metricSummary"></div>
+          </div>
+
+          <aside class="insight-card">
+            <div class="insight-panel">
+              <p class="eyebrow">Selected mix</p>
+              <h3 id="focusRatio">90:10</h3>
+              <p id="focusText">
+                The strongest segmentation result lands in the mostly synthetic
+                regime, not at either extreme.
+              </p>
+              <div class="focus-metrics" id="focusMetrics"></div>
+            </div>
+
+            <div class="insight-panel subtle">
+              <p class="eyebrow">Reading guide</p>
+              <ul class="insight-list" id="chartInsights"></ul>
+            </div>
+          </aside>
+        </div>
+
+        <div class="table-card">
+          <div class="table-head">
+            <div>
+              <p class="eyebrow">Summary table</p>
+              <h3>Sortable comparison across all ratios.</h3>
+            </div>
+            <p class="table-note">
+              Click a header to sort. The table includes both segmentation and
+              runtime metrics.
+            </p>
+          </div>
+
+          <div class="table-scroll">
+            <table class="metrics-table">
+              <thead>
+                <tr>
+                  <th data-sort-key="rank">Ratio</th>
+                  <th data-sort-key="mask50">Seg mAP@50</th>
+                  <th data-sort-key="mask5095">Seg mAP@50-95</th>
+                  <th data-sort-key="box50">Box mAP@50</th>
+                  <th data-sort-key="box5095">Box mAP@50-95</th>
+                  <th data-sort-key="precision">Precision</th>
+                  <th data-sort-key="recall">Recall</th>
+                  <th data-sort-key="speed">Speed ms/image</th>
+                </tr>
+              </thead>
+              <tbody id="metricsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card reveal" id="gallery" data-section>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Qualitative examples</p>
+            <h2>Click a figure to inspect it.</h2>
+          </div>
+          <p class="section-subtitle">
+            These examples summarize the paper's visual story: clutter
+            robustness, orientation generalization, occlusion handling, and
+            better background recall with more real data.
+          </p>
+        </div>
+
+        <div class="gallery-grid" id="figureGrid"></div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <span>Built from the paper outputs and qualitative figures.</span>
+      <a href="#top">Back to top</a>
+    </footer>
+  </div>
+
+  <div class="modal" id="figureModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button type="button" class="modal-close" data-close="true" aria-label="Close figure preview">Close</button>
+      <button type="button" class="modal-nav modal-prev" data-step="-1" aria-label="Previous figure">Prev</button>
+      <button type="button" class="modal-nav modal-next" data-step="1" aria-label="Next figure">Next</button>
+
+      <img id="modalImage" alt="">
+      <div class="modal-copy">
+        <p class="eyebrow" id="modalTag">Figure</p>
+        <h3 id="modalTitle">Preview</h3>
+        <p id="modalCaption"></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

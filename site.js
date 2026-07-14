@@ -1,6 +1,6 @@
 const resources = {
   code: {
-    href: "https://github.com/your-name/your-repo",
+    href: "https://github.com/mekala-backup/mekala-backup.github.io",
     label: "Code",
     kicker: "Source",
     note: "Implementation and evaluation scripts",

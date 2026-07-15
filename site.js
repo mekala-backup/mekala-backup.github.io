@@ -6,16 +6,22 @@ const resources = {
     note: "Implementation and evaluation scripts",
   },
   arxiv: {
-    href: "https://arxiv.org/abs/0000.00000",
-    label: "arXiv",
+    href: "https://zenodo.org/records/21369544",
+    label: "zenodo",
     kicker: "Paper",
     note: "Preprint and citation page",
   },
   huggingface: {
     href: "https://huggingface.co/mekala-2402/Less_is_More",
     label: "Hugging Face",
-    kicker: "Model",
+    kicker: "Models",
     note: "Weights, demos, or model cards",
+  },
+  huggingface: {
+    href: "https://huggingface.co/mekala-2402/Less_is_More_paper_datasets",
+    label: "Hugging Face",
+    kicker: "Datasets",
+    note: "Datasets of all 9 points,test & original ",
   },
 };
 

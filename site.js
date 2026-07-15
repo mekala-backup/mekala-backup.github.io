@@ -638,16 +638,7 @@ function renderChart(metricKey) {
     `;
   }
 
-  if (def.showBaselines) {
-    const pureReal = ratioData[8][metricKey];
-    const pureSynth = ratioData[0][metricKey];
-    svg += `
-      <line x1="${margin.left}" y1="${y(pureReal)}" x2="${width - margin.right}" y2="${y(pureReal)}" stroke="rgba(249, 115, 22, 0.8)" stroke-dasharray="8 6" stroke-width="1.5"></line>
-      <line x1="${margin.left}" y1="${y(pureSynth)}" x2="${width - margin.right}" y2="${y(pureSynth)}" stroke="rgba(15, 23, 42, 0.34)" stroke-dasharray="8 6" stroke-width="1.5"></line>
-      <text x="${width - margin.right}" y="${y(pureReal) - 8}" text-anchor="end" fill="${palette.text}" font-size="12" font-weight="700">Pure real ${formatMetricValue(pureReal, metricKey)}</text>
-      <text x="${width - margin.right}" y="${y(pureSynth) - 8}" text-anchor="end" fill="#64748b" font-size="12" font-weight="700">Pure synthetic ${formatMetricValue(pureSynth, metricKey)}</text>
-    `;
-  }
+  
 
   ratioData.forEach((row, index) => {
     const value = row[metricKey];
@@ -659,7 +650,16 @@ function renderChart(metricKey) {
     const fill = isBest ? "url(#barFill)" : "url(#barFillMuted)";
     const stroke = isBest ? palette.mainDark : palette.grid;
     const labelY = height - 26;
-
+if (def.showBaselines) {
+    const pureReal = ratioData[8][metricKey];
+    const pureSynth = ratioData[0][metricKey];
+    svg += `
+      <line x1="${margin.left}" y1="${y(pureReal)}" x2="${width - margin.right}" y2="${y(pureReal)}" stroke="rgba(249, 115, 22, 0.8)" stroke-dasharray="8 6" stroke-width="1.5"></line>
+      <line x1="${margin.left}" y1="${y(pureSynth)}" x2="${width - margin.right}" y2="${y(pureSynth)}" stroke="rgba(15, 23, 42, 0.34)" stroke-dasharray="8 6" stroke-width="1.5"></line>
+      <text x="${width - margin.right}" y="${y(pureReal) - 8}" text-anchor="end" fill="${palette.text}" font-size="12" font-weight="700">Pure real ${formatMetricValue(pureReal, metricKey)}</text>
+      <text x="${width - margin.right}" y="${y(pureSynth) - 8}" text-anchor="end" fill="#64748b" font-size="12" font-weight="700">Pure synthetic ${formatMetricValue(pureSynth, metricKey)}</text>
+    `;
+  }
     svg += `
       <g class="bar-group" data-index="${index}" tabindex="0" role="button" focusable="true" aria-label="${row.label}, ${def.title}, ${formatMetricValue(value, metricKey)}${metricSuffix(metricKey)}">
         <rect x="${x}" y="${barTop}" width="${barWidth}" height="${barHeight}" rx="16" fill="${fill}" stroke="${stroke}" stroke-width="1"></rect>

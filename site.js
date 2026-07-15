@@ -17,11 +17,11 @@ const resources = {
     kicker: "Models",
     note: "Weights, demos, or model cards",
   },
-  huggingface: {
+  dataset: {
     href: "https://huggingface.co/mekala-2402/Less_is_More_paper_datasets",
-    label: "Hugging Face",
+    label: "Dataset",
     kicker: "Datasets",
-    note: "Datasets of all 9 points,test & original ",
+    note: "All 9 ratio points, test & original",
   },
 };
 

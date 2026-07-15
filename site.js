@@ -18,8 +18,8 @@ const resources = {
     note: "Weights, demos, or model cards",
   },
   dataset: {
-    href: "https://huggingface.co/datasets/mekala-2402/Less_is_More_paper_datasets",
-    label: "Dataset",
+    href: "https://drive.google.com/drive/folders/1oILpQdap_HQ8dM8psPa9oHUsB9ezsMTI?usp=sharing",
+    label: "Google Drive",
     kicker: "Datasets",
     note: "All 9 ratio points, test & original",
   },

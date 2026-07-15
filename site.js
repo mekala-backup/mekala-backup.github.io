@@ -12,7 +12,7 @@ const resources = {
     note: "Preprint and citation page",
   },
   huggingface: {
-    href: "https://huggingface.co/your-org/your-model",
+    href: "https://huggingface.co/mekala-2402/Less_is_More",
     label: "Hugging Face",
     kicker: "Model",
     note: "Weights, demos, or model cards",
